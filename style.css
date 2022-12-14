@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@1,700&display=swap');
+
+:root{
+    --Strongcyan: hsl(172, 67%, 45%); 
+    --Verydarkcyan: hsl(183, 100%, 15%);
+    --Darkgrayishcyan: hsl(186, 14%, 43%);
+    --Grayishcyan: hsl(184, 14%, 56%);
+    --Lightgrayishcyan: hsl(185, 41%, 84%);
+    --Verylightgrayishcyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+    --formInput:24px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Space Mono', monospace;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--Lightgrayishcyan);
+}
+
+section{
+    display: flex;
+    align-items:center;
+    gap: 2rem;
+    background-color: var(--White);
+    width: 60%;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+section > div{
+    width: 50%;
+}
+
+.input-task h3{
+    text-transform: capitalize;
+    color: var(--Darkgrayishcyan);
+}
+
+.input{
+    width: 100%;
+    border: none;
+    background-color: var(--Verylightgrayishcyan);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: .5rem;
+    outline: var(--Strongcyan);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input.focus{
+    border:2px solid var(--Strongcyan);
+}
+
+input{
+    border: none;
+    background-color:transparent;
+    border: none;
+    outline: none;
+    width: 80%;
+    color: var(--Verydarkcyan);
+    font-weight: 700;
+    font-size: var(--formInput);
+    text-align: end;
+}
+
+
+
+.tip{
+    margin-block: 2rem;
+}
+
+.percentage{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding-top: 10px;
+}
+
+.percentage h4{
+    color: var(--White);
+    background-color: var(--Verydarkcyan);
+    padding-block:7px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 150ms ease;
+}
+
+.percentage h4:hover{
+    background-color: var(--Strongcyan);
+    cursor: pointer;
+    color: var(--Verydarkcyan);
+}
+
+#custom{
+    background-color: var(--Verylightgrayishcyan);
+    color: var(--Grayishcyan);
+    width: 100%;
+    border-radius: 5px;
+    text-align: end;
+    padding-right: 5px;
+}
+
+#custom:focus{
+    border:2px solid var(--Strongcyan);
+}
+
+#custom::placeholder{
+    text-align: center;
+    color: var(--Grayishcyan);
+    font-family: 'Space Mono', monospace;
+}
+
+.result{
+    background-color: var(--Verydarkcyan);
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+}
+
+.amount{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.amount .title{
+    color: var(--White);
+    text-transform: capitalize;
+}
+
+.amount h1{
+    color: var(--Strongcyan);
+    font-size: var(--formInput);
+}
+
+.person{
+    color: var(--Darkgrayishcyan);
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 7rem;
+}
+
+a{
+    width: 95%;  
+    background-color: var(--Strongcyan);
+    padding-block: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+button{
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    color: var(--Verydarkcyan);
+}
+
+a:hover{
+    background-color: var(--Strongcyan);
+}
+
+#totalPerson{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+@media  screen and (max-width:400px){
+    body{
+        height: max-content;
+        padding-top: 4rem;
+    }
+   section{
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+   } 
+   section > div{
+    width: 100%;
+   }
+   .btn{
+    margin-top: 0rem;
+   }
+
+   a{
+    width: 100%;
+   }
+
+   .percentage{
+    grid-template-columns: repeat(2, 1fr);
+   }
+}
