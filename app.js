@@ -39,15 +39,15 @@ function calculateTip(){
     let totalPersonInput = peopleForm.value
 
     let totalTipPerPerson =  (totalBillInput * tipPercentage) / totalPersonInput
-    let totalTip = totalTipPerPerson * totalPersonInput
+    let totalTip = (totalBillInput / totalPersonInput) + totalTipPerPerson
 
     // change the innertext of the figure from 0 to the new value
     totalTipFigurePerPerson.innerText = totalTipPerPerson
     totalTipFigure.innerText = totalTip
     // making our result in 2 decimal places
-    totalTipFigurePerPerson = totalTipFigurePerPerson.toFixed(3)
-    
-}
+    totalTipFigurePerPerson = (Math.round(totalTipFigurePerPerson * 100) / 100).toFixed(2);
+}   
+
 
 
 window.addEventListener('click',
@@ -77,17 +77,37 @@ window.addEventListener('click',
         else if(e.target === fifty)(
             tipPercentage = 0.5,
             inputPeople.classList.remove('focus'),
-            inputBill.classList.remove('focus'),
-            calculateTip()
+            inputBill.classList.remove('focus')
+            
         )
         else if ( e.target === custom){
             customPercentage =  custom.value * 0.01
-            tipPercentage = customPercentage
             console.log(tipPercentage)
         }
 
     }
 )
+
+
+let calculateBtn = document.querySelector('.btn')
+let button = document.querySelector('#calculate')
+
+
+let parameter = 'calculate'
+calculateBtn.addEventListener('click', function (){
+    
+
+    if(parameter ===  'calculate'){
+        calculateTip()
+        parameter = 'result'
+        button.innerText = 'reset'
+    }else {
+        console.log(inputBill)
+        window.location.reload()
+    }
+}) 
+
+
 
 
 
