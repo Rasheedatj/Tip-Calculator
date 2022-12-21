@@ -26,29 +26,6 @@ let twentyFive = document.querySelector('#twenty-five')
 let fifty = document.querySelector('#fifty')
 let custom = document.querySelector('#custom')
 
-// calculate tip
-
-// assign variables for the output figure of total tip per person
-let totalTipFigurePerPerson = document.querySelector('.per-person')
-let totalTipFigure = document.querySelector('.total')
-
-
-// a function to calculate the tip per person and total tip
-function calculateTip(){  
-    let totalBillInput = inputForm.value
-    let totalPersonInput = peopleForm.value
-
-    let totalTipPerPerson =  (totalBillInput * tipPercentage) / totalPersonInput
-    let totalTip = (totalBillInput / totalPersonInput) + totalTipPerPerson
-
-    // change the innertext of the figure from 0 to the new value
-    totalTipFigurePerPerson.innerText = totalTipPerPerson
-    totalTipFigure.innerText = totalTip
-    // making our result in 2 decimal places
-    totalTipFigurePerPerson = (Math.round(totalTipFigurePerPerson * 100) / 100).toFixed(2);
-}   
-
-
 
 window.addEventListener('click',
     function(e){
@@ -88,21 +65,58 @@ window.addEventListener('click',
     }
 )
 
+// assign variables for the output figure of total tip per person
+let totalTipFigurePerPerson = document.querySelector('.per-person')
+let totalTipFigure = document.querySelector('.total')
+ 
+
+// a function to calculate the tip per person and total tip
+function calculateTip(){  
+    let totalBillInput = inputForm.value
+    let totalPersonInput = peopleForm.value
+
+    let totalTipPerPerson =  Math.round((totalBillInput * tipPercentage) / totalPersonInput)
+    let totalBill = Math.round((totalBillInput / totalPersonInput) + totalTipPerPerson)
+
+    // change the innertext of the figure from 0 to the new value
+    totalTipFigurePerPerson.innerText = totalTipPerPerson
+    totalTipFigure.innerText = totalBill 
+
+    // making our result in 2 decimal places
+    // totalTipFigurePerPerson = (Math.round(totalTipFigurePerPerson * 100) / 100);
+}   
+
+validateText = document.querySelector('.vvv')
+function validate(){
+    let totalPersonInput = peopleForm.value
+   
+    
+    if(totalPersonInput == 0){
+        validateText.classList.add('validate')
+    }else{
+        validateText.classList.remove('validate')
+    }
+}
+
 
 let calculateBtn = document.querySelector('.btn')
 let button = document.querySelector('#calculate')
 
-
 let parameter = 'calculate'
-calculateBtn.addEventListener('click', function (){
-    
 
-    if(parameter ===  'calculate'){
+
+calculateBtn.addEventListener('click', function (){
+    if(parameter === 'calculate'){
+        validate()
+        parameter = 'validate'
+    }
+   else if(parameter === 'validate'){
         calculateTip()
         parameter = 'result'
         button.innerText = 'reset'
-    }else {
-        console.log(inputBill)
+        validateText.classList.remove('validate')
+    }
+    else {
         window.location.reload()
     }
 }) 

@@ -158,6 +158,19 @@ input{
     justify-content: center;
 }
 
+.text{
+    display: flex;
+    justify-content: space-between;
+}
+.text p{
+    color: red;
+    font-style: italic;
+    display: none;
+}
+.text p.validate{
+    display: block;
+}
+
 
 /* button{
  
