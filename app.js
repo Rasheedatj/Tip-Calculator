@@ -1,136 +1,93 @@
 // defining variables for input forms
+let inputBill = document.querySelector('.input');
+let inputForm = document.querySelector('.inputbill');
+let inputPeople = document.querySelector('.people-input');
+let peopleForm = document.querySelector('.peopleBill');
+const parent = document.querySelector('.input-task');
+const formInput = document.querySelectorAll('.input');
+const percentage = document.querySelector('.percentage');
 
-let inputBill = document.querySelector('.input')
-let inputForm = document.querySelector('.inputbill')
-
-let inputPeople = document.querySelector('.people-input')
-let peopleForm = document.querySelector('.peopleBill')
-
-// adding event listeners for border on click to forms
-inputForm.addEventListener('click', function(){
-    inputBill.classList.add('focus')
-    inputPeople.classList.remove('focus')
-})
-
-peopleForm.addEventListener('click', function(){
-    inputPeople.classList.add('focus')
-    inputBill.classList.remove('focus')
-})
-
-
-//ASSIGNING TIP PERCENTAGE TO VARAIBLES
-let five = document.querySelector('#five')
-let ten = document.querySelector('#ten')
-let fifteen = document.querySelector('#fifteen')
-let twentyFive = document.querySelector('#twenty-five')
-let fifty = document.querySelector('#fifty')
-let custom = document.querySelector('#custom')
-
-
-window.addEventListener('click',
-    function(e){
-        customPercentage = ''
-        if(e.target === five){
-            tipPercentage = 0.05,
-            inputPeople.classList.remove('focus'),
-            inputBill.classList.remove('focus')
-        }
-        
-        else if(e.target === ten)(
-            tipPercentage = 0.1,
-            inputPeople.classList.remove('focus'),
-            inputBill.classList.remove('focus')
-        )
-        else if(e.target === fifteen)(
-            tipPercentage = 0.15,
-            inputPeople.classList.remove('focus'),
-            inputBill.classList.remove('focus')
-        )
-        else if(e.target === twentyFive)(
-            tipPercentage = 0.25,
-            inputPeople.classList.remove('focus'),
-            inputBill.classList.remove('focus')
-        )
-        else if(e.target === fifty)(
-            tipPercentage = 0.5,
-            inputPeople.classList.remove('focus'),
-            inputBill.classList.remove('focus')
-            
-        )
-        else if ( e.target === custom){
-            customPercentage =  custom.value * 0.01
-            console.log(tipPercentage)
-        }
-
-    }
-)
-
-// assign variables for the output figure of total tip per person
-let totalTipFigurePerPerson = document.querySelector('.per-person')
-let totalTipFigure = document.querySelector('.total')
- 
-
-// a function to calculate the tip per person and total tip
-function calculateTip(){  
-    let totalBillInput = inputForm.value
-    let totalPersonInput = peopleForm.value
-
-    let totalTipPerPerson =  Math.round((totalBillInput * tipPercentage) / totalPersonInput)
-    let totalBill = Math.round((totalBillInput / totalPersonInput) + totalTipPerPerson)
-
-    // change the innertext of the figure from 0 to the new value
-    totalTipFigurePerPerson.innerText = totalTipPerPerson
-    totalTipFigure.innerText = totalBill 
-
-    // making our result in 2 decimal places
-    // totalTipFigurePerPerson = (Math.round(totalTipFigurePerPerson * 100) / 100);
-}   
-
-validateText = document.querySelector('.vvv')
-function validate(){
-    let totalPersonInput = peopleForm.value
-   
-    
-    if(totalPersonInput == 0){
-        validateText.classList.add('validate')
-    }else{
-        validateText.classList.remove('validate')
-    }
+function onClickBox(e) {
+  formInput.forEach((item) => {
+    item.classList.remove('focus');
+  });
+  e.target.parentElement.classList.add('focus');
 }
 
+parent.addEventListener('click', onClickBox);
 
-let calculateBtn = document.querySelector('.btn')
-let button = document.querySelector('#calculate')
+//ASSIGNING TIP PERCENTAGE TO VARAIBLES
+let five = document.querySelector('#five');
+let ten = document.querySelector('#ten');
+let fifteen = document.querySelector('#fifteen');
+let twentyFive = document.querySelector('#twenty-five');
+let fifty = document.querySelector('#fifty');
+let custom = document.querySelector('#custom');
+let tipPercentage;
 
-let parameter = 'calculate'
+// calculate percentage
+const calculatePercentage = (e) => {
+  if (e.target === five) {
+    tipPercentage = 0.05;
+  } else if (e.target === ten) tipPercentage = 0.1;
+  else if (e.target === fifteen) tipPercentage = 0.15;
+  else if (e.target === twentyFive) tipPercentage = 0.25;
+  else if (e.target === fifty) tipPercentage = 0.5;
+  else if (e.target === custom) {
+    custom.addEventListener('input', () => {
+      tipPercentage = custom.value * 0.01;
+    });
+  }
+};
 
+percentage.addEventListener('click', calculatePercentage);
 
-calculateBtn.addEventListener('click', function (){
-    if(parameter === 'calculate'){
-        validate()
-        parameter = 'validate'
-    }
-   else if(parameter === 'validate'){
-        calculateTip()
-        parameter = 'result'
-        button.innerText = 'reset'
-        validateText.classList.remove('validate')
-    }
-    else {
-        window.location.reload()
-    }
-}) 
+// assign variables for the output figure of total tip per person
+let totalTipFigurePerPerson = document.querySelector('.per-person');
+let totalTipFigure = document.querySelector('.total');
 
+// a function to calculate the tip per person and total tip
+function calculateTip() {
+  let totalBillInput = inputForm.value;
+  let totalPersonInput = peopleForm.value;
 
+  let totalTipPerPerson = Math.round(
+    (totalBillInput * tipPercentage) / totalPersonInput
+  );
+  let totalBill = Math.round(
+    totalBillInput / totalPersonInput + totalTipPerPerson
+  );
 
+  // change the innertext of the figure from 0 to the new value
+  totalTipFigurePerPerson.innerText = totalTipPerPerson.toFixed(2);
+  totalTipFigure.innerText = totalBill.toFixed(2);
+}
 
+const validateText = document.querySelector('.vvv');
+function validate() {
+  if (peopleForm.value == 0) {
+    validateText.style.display = 'block';
+  } else {
+    validateText.style.display = 'hidden';
+  }
+}
 
+const calculateBtn = document.querySelector('.btn');
 
+// final calculation and result
+const calculate = () => {
+  const parameter = 'calculate';
 
-
-
-
-
-
-
-
+  if (parameter === 'calculate') {
+    validate();
+    parameter = 'validate';
+  } else if (parameter === 'validate') {
+    calculateTip();
+    parameter = 'result';
+    calculateBtn.innerHTML = `<button type="reset" id="calculate">reset</button>`;
+    validateText.style.display = 'none';
+  } else {
+    window.location.reload();
+  }
+};
+calculateBtn.addEventListener('click', calculate);

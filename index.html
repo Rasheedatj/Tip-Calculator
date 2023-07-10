@@ -1,100 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- css link -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <!-- favicon link -->
-    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./images/favicon-32x32.png"
+      type="image/x-icon"
+    />
 
     <title>Tip Generator</title>
-</head>
-<body>
- 
+  </head>
+  <body>
     <header>
-        <img src="./images/logo.svg" alt="app logo">
+      <img src="./images/logo.svg" alt="app logo" />
     </header>
 
     <section>
-        <div class="input-task">
-
-            <!-- bill -->
-            <div class="bill">
-                <h3>bill</h3>
-                <div class="input">
-                    <img src="./images/icon-dollar.svg" alt="dollar sign">
-                    <input type="text" class="inputbill">
-                </div>
-            </div>
-
-            <!-- select tip -->
-            <div class="tip">
-                <h3>select tip %</h3>
-
-                <div class="percentage">
-                    <h4  id="five">5%</h4>
-                    <h4 id="ten">10%</h4>
-                    <h4 id="fifteen">15%</h4>
-                    <h4 id="twenty-five">25%</h4>
-                    <h4 id="fifty">50%</h4>
-                    <input type="text" id="custom" placeholder="Custom">
-                </div>
-            </div>
-
-            <!-- number of people -->
-            <div class="people">
-                <div class="text">
-                    <h3>number of people</h3>
-                    <p class="vvv">can't be 0</p>
-                </div>
-
-                <div class="input people-input">
-                    <img src="./images/icon-person.svg" alt="dollar sign">
-                    <input type="text" class="inputbill peopleBill">
-                </div>
-            </div>
-
-            <!-- <div id="calculate">
-                <button type="reset">calculate</button>
-            </div> -->
+      <div class="input-task">
+        <!-- bill -->
+        <div class="bill">
+          <h3>bill</h3>
+          <div class="input">
+            <img src="./images/icon-dollar.svg" alt="dollar sign" />
+            <input type="text" class="inputbill" />
+          </div>
         </div>
 
-        <!-- output -->
-        <div class="result">
-            <!-- tip amount per person -->
-            <div class="amount">
-                <div class="tip-amount">
-                    <p class="title">tip amount</p>
-                    <p class="person">/ person</p>
-                </div>
+        <!-- select tip -->
+        <div class="tip">
+          <h3>select tip %</h3>
 
-               <div id="totalPerson">
-                <img src="./images/icon-dollar.svg" alt="dollar sign"> 
-                <h1 class="per-person">0.00</h1>
-               </div>
-            </div>
-
-            <!-- total -->
-            <div class="amount">
-                <div class="tip-amount">
-                    <p class="title">total</p>
-                    <p class="person">/ person</p>
-                </div>
-                <div id="totalPerson">
-                    <img src="./images/icon-dollar.svg" alt="dollar sign"> 
-                    <h1 class="total">0.00</h1>
-                   </div>
-            </div>
-
-            <!-- reset button -->
-            <div class="btn">
-                <button type="reset" id="calculate">calculate</button>
-            </div>
+          <div class="percentage">
+            <h4 id="five">5%</h4>
+            <h4 id="ten">10%</h4>
+            <h4 id="fifteen">15%</h4>
+            <h4 id="twenty-five">25%</h4>
+            <h4 id="fifty">50%</h4>
+            <input type="text" id="custom" placeholder="Custom" />
+          </div>
         </div>
+
+        <!-- number of people -->
+        <div class="people">
+          <div class="text">
+            <h3>number of people</h3>
+            <p class="vvv">can't be 0</p>
+          </div>
+
+          <div class="input people-input">
+            <img src="./images/icon-person.svg" alt="dollar sign" />
+            <input type="text" class="inputbill peopleBill" />
+          </div>
+        </div>
+      </div>
+
+      <!-- output -->
+      <div class="result">
+        <!-- tip amount per person -->
+        <div class="amount">
+          <div class="tip-amount">
+            <p class="title">tip amount</p>
+            <p class="person">/ person</p>
+          </div>
+
+          <div id="totalPerson">
+            <img src="./images/icon-dollar.svg" alt="dollar sign" />
+            <h1 class="per-person">0.00</h1>
+          </div>
+        </div>
+
+        <!-- total -->
+        <div class="amount">
+          <div class="tip-amount">
+            <p class="title">total</p>
+            <p class="person">/ person</p>
+          </div>
+          <div id="totalPerson">
+            <img src="./images/icon-dollar.svg" alt="dollar sign" />
+            <h1 class="total">0.00</h1>
+          </div>
+        </div>
+
+        <!-- reset button -->
+        <div class="btn">
+          <button type="reset" id="calculate">calculate</button>
+        </div>
+      </div>
     </section>
-    
-<script src="./app.js"></script>
-</body>
+
+    <script src="./app.js"></script>
+  </body>
 </html>
