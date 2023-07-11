@@ -100,7 +100,6 @@ input {
 .percentage h4:hover {
   background-color: var(--Strongcyan);
   cursor: pointer;
-  color: var(--Verydarkcyan);
 }
 
 #custom {
