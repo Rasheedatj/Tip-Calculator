@@ -74,11 +74,11 @@ function validate() {
 
 const calculateBtn = document.querySelector('.btn');
 
+let parameter = 'calculate';
 // final calculation and result
 const calculate = () => {
-  const parameter = 'calculate';
-
   if (parameter === 'calculate') {
+    console.log('object');
     validate();
     parameter = 'validate';
   } else if (parameter === 'validate') {
