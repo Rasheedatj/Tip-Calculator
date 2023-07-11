@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@1,700&display=swap');
 
 :root {
-  --Strongcyan: hsl(172, 67%, 45%);
+  --Strongcyan: #26c0ab;
   --Verydarkcyan: hsl(183, 100%, 15%);
   --Darkgrayishcyan: hsl(186, 14%, 43%);
   --Grayishcyan: hsl(184, 14%, 56%);
@@ -208,7 +208,7 @@ a:hover,
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 420px) {
   body {
     height: max-content;
     padding-top: 4rem;

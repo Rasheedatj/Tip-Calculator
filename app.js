@@ -38,6 +38,14 @@ const calculatePercentage = (e) => {
       tipPercentage = custom.value * 0.01;
     });
   }
+
+  document.querySelectorAll('.percentage h4').forEach((percentItem) => {
+    percentItem.style.backgroundColor = '#00494d';
+  });
+
+  if (e.target.classList.contains('bg__loop')) {
+    e.target.style.backgroundColor = '#26c0ab';
+  }
 };
 
 percentage.addEventListener('click', calculatePercentage);
